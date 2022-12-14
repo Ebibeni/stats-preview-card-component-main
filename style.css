@@ -1,0 +1,238 @@
+/* declaring const variables to be used later */
+:root{
+    
+    --clr-primary-Soft-violet: 277, 64%, 61%;
+    --clr-neutral-white: 0 0% 100%;
+    --clr-neutral-main-BG: 233, 47%, 7%;
+    --clr-neutral-card-BG: 244, 38%, 16%;
+    --clr-neutral-main-paragraph-white: 0, 0%, 100%, 0.75;
+    --clr-neutral-main-stat-headings-white: 0, 0%, 100%, 0.6;
+
+    --ff-primary: "Inter";
+    --ff-secondry: "Lexend Deca";
+    
+
+    --fw-400: 400;
+    --fw-700: 700;
+
+    /* Since the default root font size is 16px then, then following */
+    /* 10px */
+    --fs-small: 0.625rem;
+    /* 15px */
+    --fs-500: 0.9375rem;
+    /* 20px */
+    --fs-2000: 1.25rem;
+    
+}
+/* Text color */
+.text-primary-main-heading {
+  color: hsl(var(--clr-neutral-white));
+}
+.text-primary-main-heading-Soft-violet {
+  color: hsl(var(--clr-primary-Soft-violet));
+}
+.text-primary-paragraph {
+  color: hsl(var(--clr-neutral-main-paragraph-white));
+}
+.text-stat-headings {
+  color: hsla(var(--clr-neutral-main-stat-headings-white));
+}
+
+/* Text sizing */
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-2000 {
+  font-size: var(--fs-2000);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: hsl(var(--clr-neutral-main-BG));
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  filter: sepia(90%) saturate(250%) brightness(60%) hue-rotate(225deg);
+  border: solid 0px;
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+  
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  .container {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card{
+    display: flex;
+    background-color: hsl(var(--clr-neutral-card-BG));
+    max-width: 55rem;
+    border: solid;
+    border-radius: 0.5rem;
+  }
+  .text-detail-div {
+    padding: 2rem;
+    padding-right: 4rem;
+    width: 50%;
+  }
+
+  .image-div {
+    width: 50%;
+    overflow: hidden;
+  }
+  h1{
+    margin-bottom: 1rem;
+    font-family: var(--ff-primary);
+  }
+
+  p{
+    margin-bottom: 3rem;
+  }
+
+  .stats-container {
+    display: flex;
+  }
+  .stats-text-style {
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-700);
+  }
+  .stats-span{
+    display: block;
+    color: hsla(var(--clr-neutral-main-stat-headings-white));
+    font-family: var(--ff-secondry);
+    font-size: var(--fs-small);
+  }
+  .stats-span-margin-right {
+    margin-right: 3.5rem;
+  }
+  .no-shrink-flex{
+    flex-shrink: 0;
+  }
+
+  @media (width < 644px){
+    .stats-container{
+        flex-wrap: wrap;
+    }
+  }
+  @media (width < 376px){
+    .card {
+        flex-flow: column;
+        text-align: center;
+    }
+    .text-detail-div {
+        padding: 2rem;
+    }
+
+    .stats-span-margin-right {
+        margin: 0 0 1.5rem 0;
+      }
+
+    .stats-container{
+        flex-direction: column;
+    }
+    
+    .image-div, .text-detail-div{
+        width: 100%;
+    }
+    .image-div{
+        content: url('./images/image-header-mobile.jpg');
+        filter: sepia(90%) saturate(250%) brightness(60%) hue-rotate(225deg);
+    }
+    
+    .stats-span{
+        font-size: var(--fs-small);
+    }
+
+    .stats-text-style {
+        font-weight: var(--fw-700);
+        font-size: var(--fs-2000);
+    }
+
+    h1 {
+        margin-bottom: 1rem;
+        font-family: var(--ff-primary);
+    }
+
+    p{
+        margin-bottom: 2rem;
+    }
+
+    .card :nth-child(2) { order: 1; }
+    .card :nth-child(1) { order: 2; }
+
+    .stats-container :nth-child(1) { order: 1; }
+    .stats-container :nth-child(2) { order: 2; }
+    .stats-container :nth-child(3) { order: 3; }
+  }
